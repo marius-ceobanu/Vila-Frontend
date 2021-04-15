@@ -7,6 +7,8 @@ import styles from "../../jss/landingPageStyle";
 import Header from "../Layout/Header";
 import CustomButton from "../Layout/CustomButton";
 import HeaderLinks from "../Layout/HeaderLinks";
+import GridContainer from "../Layout/GridContainer";
+import GridItem from "../Layout/GridItem";
 
 const dashboardRoutes = [];
 
