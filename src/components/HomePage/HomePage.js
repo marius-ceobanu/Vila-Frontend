@@ -6,6 +6,7 @@ import styles from "../../jss/landingPageStyle";
 
 // TODO implement the homepage sections and import them here
 import ExperienceSection from "./Sections/ExperienceSection";
+import VilaFacilitiesSection from "./Sections/VilaFacilitiesSection";
 
 import Header from "../Layout/Header";
 import CustomButton from "../Layout/CustomButton";
@@ -34,7 +35,7 @@ function HomePage(props) {
                 fixed
                 changeColorOnScroll={{
                     height: 400,
-                    color: "white"
+                    color: "custom"
                 }}
                 { ...rest }
             />
@@ -69,6 +70,7 @@ function HomePage(props) {
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
                     <ExperienceSection />
+                    <VilaFacilitiesSection />
                     {/*// TODO add all sections components here*/}
                 </div>
             </div>

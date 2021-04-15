@@ -74,6 +74,12 @@ const headerStyle = {
     boxShadow:
       "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46)"
   },
+  custom: {
+    backgroundColor: "#17202A",
+    color: "#FFFFFF",
+    boxShadow:
+        "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46)"
+  },
   info: {
     backgroundColor: infoColor,
     color: "#FFFFFF",
