@@ -9,7 +9,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import { Apps, CloudDownload } from "@material-ui/icons";
+import {Apps, Restaurant, Twitter, Instagram, Facebook, Info} from "@material-ui/icons";
 
 import CustomDropdown from "../Layout/CustomDropdown";
 import Button from "../Layout/CustomButton";
@@ -25,7 +25,7 @@ function HeaderLinks(props) {
             <ListItem className={classes.listItem}>
                 <CustomDropdown
                     noLiPadding
-                    buttonText="Components"
+                    buttonText="Camere"
                     buttonProps={{
                         className: classes.navLink,
                         color: "transparent"
@@ -33,14 +33,21 @@ function HeaderLinks(props) {
                     buttonIcon={Apps}
                     dropdownList={[
                         <Link to="/" className={classes.dropdownLink}>
-                            All components
+                            Toate
                         </Link>,
                         <a
-                            href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
+                            href=""
                             target="_blank"
                             className={classes.dropdownLink}
                         >
-                            Documentation
+                            Single
+                        </a>,
+                        <a
+                            href=""
+                            target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            Double
                         </a>
                     ]}
                 />
@@ -52,7 +59,17 @@ function HeaderLinks(props) {
                     target="_blank"
                     className={classes.navLink}
                 >
-                    <CloudDownload className={classes.icons} /> Download
+                    <Info className={classes.icons} /> Despre noi
+                </Button>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+                <Button
+                    href=""
+                    color="transparent"
+                    target="_blank"
+                    className={classes.navLink}
+                >
+                    <Restaurant className={classes.icons} /> Restaurant
                 </Button>
             </ListItem>
             <ListItem className={classes.listItem}>
@@ -73,7 +90,8 @@ function HeaderLinks(props) {
                         color="transparent"
                         className={classes.navLink}
                     >
-                        <i className={classes.socialIcons + " fab fa-twitter"} />
+                        {/*<i className={classes.socialIcons + " fab fa-twitter"} />*/}
+                        <Twitter className={classes.icons} />
                     </Button>
                 </Tooltip>
             </ListItem>
@@ -90,7 +108,8 @@ function HeaderLinks(props) {
                         target="_blank"
                         className={classes.navLink}
                     >
-                        <i className={classes.socialIcons + " fab fa-facebook"} />
+                        {/*<i className={classes.socialIcons + " fab fa-facebook"} />*/}
+                        <Facebook className={classes.icons} />
                     </Button>
                 </Tooltip>
             </ListItem>
@@ -107,7 +126,8 @@ function HeaderLinks(props) {
                         target="_blank"
                         className={classes.navLink}
                     >
-                        <i className={classes.socialIcons + " fab fa-instagram"} />
+                        {/*<i className={classes.socialIcons + " fab fa-instagram"} />*/}
+                        <Instagram className={classes.icons} />
                     </Button>
                 </Tooltip>
             </ListItem>

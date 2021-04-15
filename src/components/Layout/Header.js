@@ -10,6 +10,8 @@ import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
 
+import logo from "../../img/logo-white.png";
+
 import Menu from "@material-ui/icons/Menu";
 
 import styles from "../../jss/headerStyle";
@@ -63,18 +65,19 @@ function Header(props) {
         [classes.fixed]: fixed
     });
 
-    const brandComponent = <Button className={classes.title}>{brand}</Button>
+    const brandComponent = <Button className={classes.title}><img src={logo} alt={"logo"} className={classes.logo} /></Button>
     return(
         <AppBar className={appBarClasses}>
+            {brandComponent}
             <Toolbar className={classes.container}>
-                {leftLinks !== undefined ? brandComponent : null}
+                {leftLinks !== undefined ? brand : null}
                 <div className={classes.flex}>
                     {leftLinks !== undefined ? (
                         <Hidden smDown implementation={"css"}>
                             {leftLinks}
                         </Hidden>
                     ) : (
-                        brandComponent
+                        brand
                     )}
                 </div>
                 <Hidden smDown implementation={"css"}>
