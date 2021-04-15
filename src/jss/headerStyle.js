@@ -146,6 +146,10 @@ const headerStyle = {
     paddingRight: "0px",
     paddingLeft: "0",
     ...transition
+  },
+  logo: {
+    maxWidth: 200,
+    marginLeft: "20px"
   }
 };
 
