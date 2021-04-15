@@ -1,7 +1,4 @@
-/*eslint-disable*/
 import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
 import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,7 +6,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import {Apps, Restaurant, Twitter, Instagram, Facebook, Info, Contacts, CalendarToday} from "@material-ui/icons";
+import {Apps, Restaurant, Info, Contacts, CalendarToday, AssignmentTurnedIn, VpnKey} from "@material-ui/icons";
 
 import CustomDropdown from "../Layout/CustomDropdown";
 import Button from "../Layout/CustomButton";
@@ -56,14 +53,14 @@ function HeaderLinks(props) {
                             Toate
                         </Link>,
                         <a
-                            href=""
+                            href="/"
                             target="_blank"
                             className={classes.dropdownLink}
                         >
                             Single
                         </a>,
                         <a
-                            href=""
+                            href="/"
                             target="_blank"
                             className={classes.dropdownLink}
                         >
@@ -103,61 +100,36 @@ function HeaderLinks(props) {
                 </Button>
             </ListItem>
             <ListItem className={classes.listItem}>
-                {/*<Tooltip title="Delete">
-          <IconButton aria-label="Delete">
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>*/}
                 <Tooltip
-                    id="instagram-twitter"
-                    title="Follow us on twitter"
-                    placement={window.innerWidth > 959 ? "top" : "left"}
-                    classes={{ tooltip: classes.tooltip }}
-                >
-                    <Button
-                        href="https://twitter.com"
-                        target="_blank"
-                        color="transparent"
-                        className={classes.navLink}
-                    >
-                        {/*<i className={classes.socialIcons + " fab fa-twitter"} />*/}
-                        <Twitter className={classes.icons} />
-                    </Button>
-                </Tooltip>
-            </ListItem>
-            <ListItem className={classes.listItem}>
-                <Tooltip
-                    id="instagram-facebook"
-                    title="Follow us on facebook"
+                    id="instagram-tooltip"
+                    title="Login"
                     placement={window.innerWidth > 959 ? "top" : "left"}
                     classes={{ tooltip: classes.tooltip }}
                 >
                     <Button
                         color="transparent"
-                        href="https://www.facebook.com"
+                        href=""
                         target="_blank"
                         className={classes.navLink}
                     >
-                        {/*<i className={classes.socialIcons + " fab fa-facebook"} />*/}
-                        <Facebook className={classes.icons} />
+                        <VpnKey className={classes.icons} />
                     </Button>
                 </Tooltip>
             </ListItem>
             <ListItem className={classes.listItem}>
                 <Tooltip
                     id="instagram-tooltip"
-                    title="Follow us on instagram"
+                    title="Creează un cont"
                     placement={window.innerWidth > 959 ? "top" : "left"}
                     classes={{ tooltip: classes.tooltip }}
                 >
                     <Button
                         color="transparent"
-                        href="https://www.instagram.com"
+                        href=""
                         target="_blank"
                         className={classes.navLink}
                     >
-                        {/*<i className={classes.socialIcons + " fab fa-instagram"} />*/}
-                        <Instagram className={classes.icons} />
+                        <AssignmentTurnedIn className={classes.icons} />
                     </Button>
                 </Tooltip>
             </ListItem>

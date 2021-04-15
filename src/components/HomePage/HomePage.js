@@ -14,6 +14,7 @@ import HeaderLinks from "../Layout/HeaderLinks";
 import GridContainer from "../Layout/GridContainer";
 import GridItem from "../Layout/GridItem";
 import Parallax from "../Layout/Parallax";
+import Footer from "../Layout/Footer";
 
 import { PlayArrow } from "@material-ui/icons";
 
@@ -74,6 +75,7 @@ function HomePage(props) {
                     {/*// TODO add all sections components here*/}
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
