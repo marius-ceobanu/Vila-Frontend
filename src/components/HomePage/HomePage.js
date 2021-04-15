@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "../../jss/landingPageStyle";
 
 // TODO implement the homepage sections and import them here
+import ExperienceSection from "./Sections/ExperienceSection";
 
 import Header from "../Layout/Header";
 import CustomButton from "../Layout/CustomButton";
@@ -12,6 +13,7 @@ import HeaderLinks from "../Layout/HeaderLinks";
 import GridContainer from "../Layout/GridContainer";
 import GridItem from "../Layout/GridItem";
 import Parallax from "../Layout/Parallax";
+
 import { PlayArrow } from "@material-ui/icons";
 
 const dashboardRoutes = [];
@@ -66,6 +68,7 @@ function HomePage(props) {
             </Parallax>
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
+                    <ExperienceSection />
                     {/*// TODO add all sections components here*/}
                 </div>
             </div>

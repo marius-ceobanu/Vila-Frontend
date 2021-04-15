@@ -9,7 +9,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import {Apps, Restaurant, Twitter, Instagram, Facebook, Info} from "@material-ui/icons";
+import {Apps, Restaurant, Twitter, Instagram, Facebook, Info, Contacts, CalendarToday} from "@material-ui/icons";
 
 import CustomDropdown from "../Layout/CustomDropdown";
 import Button from "../Layout/CustomButton";
@@ -22,6 +22,26 @@ function HeaderLinks(props) {
     const classes = useStyles();
     return (
         <List className={classes.list}>
+            <ListItem className={classes.listItem}>
+                <Button
+                    href=""
+                    color="transparent"
+                    target="_blank"
+                    className={classes.navLink}
+                >
+                    <Info className={classes.icons} /> Despre noi
+                </Button>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+                <Button
+                    href=""
+                    color="transparent"
+                    target="_blank"
+                    className={classes.navLink}
+                >
+                    <Restaurant className={classes.icons} /> Restaurant
+                </Button>
+            </ListItem>
             <ListItem className={classes.listItem}>
                 <CustomDropdown
                     noLiPadding
@@ -59,7 +79,7 @@ function HeaderLinks(props) {
                     target="_blank"
                     className={classes.navLink}
                 >
-                    <Info className={classes.icons} /> Despre noi
+                    <Contacts className={classes.icons} /> Contact
                 </Button>
             </ListItem>
             <ListItem className={classes.listItem}>
@@ -69,7 +89,17 @@ function HeaderLinks(props) {
                     target="_blank"
                     className={classes.navLink}
                 >
-                    <Restaurant className={classes.icons} /> Restaurant
+                    Descopera Zona
+                </Button>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+                <Button
+                    href=""
+                    color="transparent"
+                    target="_blank"
+                    className={classes.navLink}
+                >
+                    <CalendarToday className={classes.icons} /> Rezerva
                 </Button>
             </ListItem>
             <ListItem className={classes.listItem}>
