@@ -151,7 +151,8 @@ Header.propTypes = {
             "transparent",
             "white",
             "rose",
-            "dark"
+            "dark",
+            "custom"
         ]).isRequired
     })
 };
