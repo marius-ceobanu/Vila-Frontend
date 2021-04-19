@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,10 +12,14 @@ import CustomDropdown from "../Layout/CustomDropdown";
 import Button from "../Layout/CustomButton";
 
 import styles from "../../jss/headerLinksStyle";
+import RoomsModal from "../Rooms/RoomsModal";
 
 const useStyles = makeStyles(styles);
 
 function HeaderLinks(props) {
+    const [roomsModal, setRoomsModal] = useState(false);
+    const [roomsFilter, setRoomsFilter] = useState("Toate");
+
     const classes = useStyles();
     return (
         <List className={classes.list}>
@@ -49,20 +53,20 @@ function HeaderLinks(props) {
                     }}
                     buttonIcon={Apps}
                     dropdownList={[
-                        <Link to="/home" className={classes.dropdownLink} onClick={() => {props.setRoomsFilter("Toate"); props.openRooms();}}>
+                        <Link to="#" className={classes.dropdownLink} onClick={() => {setRoomsFilter("Toate"); setRoomsModal(true);}}>
                             Toate
                         </Link>,
                         <Link
-                            to="/home"
+                            to="#"
                             className={classes.dropdownLink}
-                            onClick={() => {props.setRoomsFilter("Single"); props.openRooms();}}
+                            onClick={() => {setRoomsFilter("Single"); setRoomsModal(true);}}
                         >
                             Single
                         </Link>,
                         <Link
-                            to="/home"
+                            to="#"
                             className={classes.dropdownLink}
-                            onClick={() => {props.setRoomsFilter("Double"); props.openRooms();}}
+                            onClick={() => {setRoomsFilter("Double"); setRoomsModal(true);}}
                         >
                             Double
                         </Link>
@@ -133,6 +137,7 @@ function HeaderLinks(props) {
                     </Button>
                 </Tooltip>
             </ListItem>
+            <RoomsModal open={roomsModal} close={() => setRoomsModal(false)} filter={roomsFilter} />
         </List>
     );
 }

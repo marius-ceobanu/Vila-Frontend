@@ -62,7 +62,7 @@ function RoomsModal({ open, close, filter }) {
                 id="modal-slide-description"
                 className={classes.modalBody}
             >
-                <SectionCarousel rooms={rooms} />
+                <SectionCarousel rooms={rooms} close={close} />
             </DialogContent>
         </Dialog>
     );

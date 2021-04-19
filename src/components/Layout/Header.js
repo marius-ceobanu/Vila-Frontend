@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -6,7 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
 
@@ -15,12 +14,13 @@ import logo from "../../img/logo-white.png";
 import Menu from "@material-ui/icons/Menu";
 
 import styles from "../../jss/headerStyle";
+import {Link} from "react-router-dom";
 
 const userStyles = makeStyles(styles);
 
 function Header(props) {
     const classes = userStyles();
-    const[mobileOpen, setMobileOpen] = React.useState(false);
+    const[mobileOpen, setMobileOpen] = useState(false);
     useEffect(() => {
         if(props.changeColorOnScroll) {
             window.addEventListener("scroll", headerColorChange);
@@ -65,7 +65,7 @@ function Header(props) {
         [classes.fixed]: fixed
     });
 
-    const brandComponent = <Button className={classes.title}><img src={logo} alt={"logo"} className={classes.logo} /></Button>
+    const brandComponent = <Link to={"/home"} className={classes.title}><img src={logo} alt={"logo"} className={classes.logo} /></Link>
     return(
         <AppBar className={appBarClasses}>
             {brandComponent}

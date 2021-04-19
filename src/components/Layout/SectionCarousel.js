@@ -18,7 +18,7 @@ import styles from "../../jss/carouselStyle.js";
 
 const useStyles = makeStyles(styles);
 
-function SectionCarousel({ rooms }) {
+function SectionCarousel({ rooms, close }) {
     const classes = useStyles();
     const roomsImg = {"Room 1": room1, "Room 2": room2, "Room 3": room3, "Room 4": room4, "Room 5": room5, "Room 6": room6};
     const settings = {
@@ -36,7 +36,7 @@ function SectionCarousel({ rooms }) {
                 <Carousel {...settings}>
                     {rooms.map((room, i) => (
                         <div key={i}>
-                            <Link to={`/rooms/${room.id}`}>
+                            <Link to={`/rooms/${room.id}`} onClick={close}>
                                 <img src={roomsImg[room.name]} alt={"slide"+i} className="slick-image" />
                                 <div className="slick-caption">
                                     <h4>
