@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -17,6 +17,7 @@ import Parallax from "../Layout/Parallax";
 import Footer from "../Layout/Footer";
 
 import { PlayArrow } from "@material-ui/icons";
+import RoomsModal from "../Rooms/RoomsModal";
 
 const dashboardRoutes = [];
 
@@ -25,6 +26,8 @@ const useStyles = makeStyles(styles);
 function HomePage(props) {
     const classes = useStyles();
     const { ...rest } = props;
+    const [roomsModal, setRoomsModal] = useState(false);
+    const [roomsFilter, setRoomsFilter] = useState("Toate");
 
     return (
         <div>
@@ -32,7 +35,7 @@ function HomePage(props) {
                 color="transparent"
                 routes={dashboardRoutes}
                 brand=""
-                rightLinks={<HeaderLinks />}
+                rightLinks={<HeaderLinks openRooms={() => setRoomsModal(true)} setRoomsFilter={(f) => setRoomsFilter(f)} />}
                 fixed
                 changeColorOnScroll={{
                     height: 400,
@@ -76,6 +79,7 @@ function HomePage(props) {
                 </div>
             </div>
             <Footer />
+            <RoomsModal open={roomsModal} close={() => setRoomsModal(false)} filter={roomsFilter} />
         </div>
     )
 }
