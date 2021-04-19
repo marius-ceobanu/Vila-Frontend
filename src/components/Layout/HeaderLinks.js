@@ -49,23 +49,23 @@ function HeaderLinks(props) {
                     }}
                     buttonIcon={Apps}
                     dropdownList={[
-                        <Link to="/" className={classes.dropdownLink}>
+                        <Link to="/home" className={classes.dropdownLink} onClick={() => {props.setRoomsFilter("Toate"); props.openRooms();}}>
                             Toate
                         </Link>,
-                        <a
-                            href="/"
-                            target="_blank"
+                        <Link
+                            to="/home"
                             className={classes.dropdownLink}
+                            onClick={() => {props.setRoomsFilter("Single"); props.openRooms();}}
                         >
                             Single
-                        </a>,
-                        <a
-                            href="/"
-                            target="_blank"
+                        </Link>,
+                        <Link
+                            to="/home"
                             className={classes.dropdownLink}
+                            onClick={() => {props.setRoomsFilter("Double"); props.openRooms();}}
                         >
                             Double
-                        </a>
+                        </Link>
                     ]}
                 />
             </ListItem>
