@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Lightbox from "react-awesome-lightbox";
+import "react-awesome-lightbox/build/style.css";
 
 import classNames from "classnames";
 
@@ -41,7 +43,9 @@ const roomAPI = "http://localhost:8080/vila/v1/rooms/";
 
 function RoomDetails(props) {
     const roomImages = [room1, room2, room3, room4, room5, room6];
+    // const roomImages = [{url: room1, title: "Room 1"}, {url: room2, title: "Room 2"}];
     const roomId = props.match.params.id;
+    const [openZoom, setOpenZoom] = useState(false);
     const [room, setRoom] = useState({amenities: []});
     useEffect(() => {
         axios.get(roomAPI+roomId).then(response => setRoom({name: response.data.name, price: response.data.price,  description: response.data.description, amenities: response.data.amenities, type: response.data.roomType.type}));
@@ -80,7 +84,7 @@ function RoomDetails(props) {
                                             tabButton: "Imagini",
                                             tabIcon: Camera,
                                             tabContent: (
-                                                <GridContainer justify="center">
+                                                <GridContainer justify="center" onClick={() => setOpenZoom(true)}>
                                                     <GridItem xs={12} sm={12} md={4}>
                                                         {roomImages.map((image, i) => (
                                                             <img
@@ -119,6 +123,9 @@ function RoomDetails(props) {
                 </div>
             </div>
             <Footer />
+            {openZoom &&(
+                <Lightbox images={roomImages} onClose={() => setOpenZoom(false)} />
+            )}
         </div>
     );
 }
