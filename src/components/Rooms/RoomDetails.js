@@ -16,6 +16,8 @@ import GridItem from "../Layout/GridItem.js";
 import NavPills from "../Layout/NavPills.js";
 import Parallax from "../Layout/Parallax.js";
 import InfoArea from "../Layout/InfoArea";
+import Header from "../Layout/Header";
+import HeaderLinks from "../Layout/HeaderLinks";
 
 // TODO to be replaced with fetched images of each room
 import room1 from "../../img/roomsForRent/room1.jpg";
@@ -52,10 +54,22 @@ function RoomDetails(props) {
         // eslint-disable-next-line
     }, [roomId])
     const classes = useStyles();
+    const { ...rest } = props;
     const amenitiesIcons = {1: space, 2: space, 3: food, 4: room, 5: space, 6: space, 7: wifi, 8: space, 9: wifi, 10: roomL, 11: bath, 12: tv, 13: dryer, 14: food};
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     return(
         <div>
+            <Header
+                color="transparent"
+                brand=""
+                rightLinks={<HeaderLinks />}
+                fixed
+                changeColorOnScroll={{
+                    height: 200,
+                    color: "custom"
+                }}
+                {...rest}
+            />
             <Parallax small filter image={require("../../img/home-bg.jpg")} />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div>

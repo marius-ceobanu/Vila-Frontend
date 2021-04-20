@@ -15,14 +15,30 @@ import Parallax from "../Layout/Parallax";
 import Footer from "../Layout/Footer";
 
 import { PlayArrow } from "@material-ui/icons";
+import Header from "../Layout/Header";
+import HeaderLinks from "../Layout/HeaderLinks";
+
+const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
 function HomePage(props) {
     const classes = useStyles();
-
+    const { ...rest } = props;
     return (
         <div>
+            <Header
+                color="transparent"
+                routes={dashboardRoutes}
+                brand=""
+                rightLinks={<HeaderLinks />}
+                fixed
+                changeColorOnScroll={{
+                    height: 400,
+                    color: "custom"
+                }}
+                { ...rest }
+            />
             <Parallax filter image={require("../../img/home-bg.jpg")}>
                 <div className={classes.container}>
                     <GridContainer>
