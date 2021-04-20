@@ -10,7 +10,6 @@ import Favorite from "@material-ui/icons/Favorite";
 import styles from "../../jss/footerStyle.js";
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "./CustomButton";
-import {Facebook, Instagram, Twitter} from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
 
@@ -43,7 +42,7 @@ export default function Footer(props) {
                                     color="transparent"
                                     className={classes.navLink}
                                 >
-                                    <Twitter className={classes.icons} />
+                                    <i className={classes.socialIcons + " fab fa-twitter"} />
                                 </Button>
                             </Tooltip>
                         </ListItem>
@@ -60,7 +59,7 @@ export default function Footer(props) {
                                     target="_blank"
                                     className={classes.navLink}
                                 >
-                                    <Facebook className={classes.icons} />
+                                    <i className={classes.socialIcons + " fab fa-facebook"} />
                                 </Button>
                             </Tooltip>
                         </ListItem>
@@ -77,7 +76,7 @@ export default function Footer(props) {
                                     target="_blank"
                                     className={classes.navLink}
                                 >
-                                    <Instagram className={classes.icons} />
+                                    <i className={classes.socialIcons + " fab fa-instagram"} />
                                 </Button>
                             </Tooltip>
                         </ListItem>
