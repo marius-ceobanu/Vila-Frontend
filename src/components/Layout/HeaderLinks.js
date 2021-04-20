@@ -103,40 +103,44 @@ function HeaderLinks(props) {
                     <CalendarToday className={classes.icons} /> Rezerva
                 </Button>
             </ListItem>
-            <ListItem className={classes.listItem}>
-                <Tooltip
-                    id="instagram-tooltip"
-                    title="Login"
-                    placement={window.innerWidth > 959 ? "top" : "left"}
-                    classes={{ tooltip: classes.tooltip }}
-                >
-                    <Button
-                        color="transparent"
-                        href=""
-                        target="_blank"
-                        className={classes.navLink}
+            {/*<Link to={"/authentication/login"}>*/}
+                <ListItem className={classes.listItem}>
+                    <Tooltip
+                        id="instagram-tooltip"
+                        title="Login"
+                        placement={window.innerWidth > 959 ? "top" : "left"}
+                        classes={{ tooltip: classes.tooltip }}
                     >
-                        <VpnKey className={classes.icons} />
-                    </Button>
-                </Tooltip>
-            </ListItem>
-            <ListItem className={classes.listItem}>
-                <Tooltip
-                    id="instagram-tooltip"
-                    title="Creează un cont"
-                    placement={window.innerWidth > 959 ? "top" : "left"}
-                    classes={{ tooltip: classes.tooltip }}
-                >
-                    <Button
-                        color="transparent"
-                        href=""
-                        target="_blank"
-                        className={classes.navLink}
+                        <Button
+                            color="transparent"
+                            href="/authentication/login"
+                            // target="_blank"
+                            className={classes.navLink}
+                        >
+                            <VpnKey className={classes.icons} />
+                        </Button>
+                    </Tooltip>
+                </ListItem>
+            {/*</Link>*/}
+            {/*<Link to={"/authentication/register"}>*/}
+                <ListItem className={classes.listItem}>
+                    <Tooltip
+                        id="instagram-tooltip"
+                        title="Creează un cont"
+                        placement={window.innerWidth > 959 ? "top" : "left"}
+                        classes={{ tooltip: classes.tooltip }}
                     >
-                        <AssignmentTurnedIn className={classes.icons} />
-                    </Button>
-                </Tooltip>
-            </ListItem>
+                        <Button
+                            color="transparent"
+                            href="/authentication/register"
+                            // target="_blank"
+                            className={classes.navLink}
+                        >
+                            <AssignmentTurnedIn className={classes.icons} />
+                        </Button>
+                    </Tooltip>
+                </ListItem>
+            {/*</Link>*/}
             <RoomsModal open={roomsModal} close={() => setRoomsModal(false)} filter={roomsFilter} />
         </List>
     );

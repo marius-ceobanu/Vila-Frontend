@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -168,9 +169,30 @@ function AuthenticationPage(props) {
                                         />
                                     </CardBody>
                                     <CardFooter className={classes.cardFooter}>
-                                        <CustomButton simple color="primary" size="lg">
-                                            {mode}
-                                        </CustomButton>
+                                        {mode === "Login" && (
+                                            <div>
+                                                <CustomButton simple color="primary" size="lg">
+                                                    {mode}
+                                                </CustomButton>
+                                                <Link to={"/authentication/register"} onClick={() => setMode("Register")}>
+                                                    <CustomButton simple color="primary" size="sm">
+                                                        Creaza cont
+                                                    </CustomButton>
+                                                </Link>
+                                            </div>
+                                        )}
+                                        {mode === "Register" && (
+                                            <div>
+                                                <Link to={"/authentication/login"} onClick={() => setMode("Login")}>
+                                                    <CustomButton simple color="primary" size="sm">
+                                                        Login
+                                                    </CustomButton>
+                                                </Link>
+                                                <CustomButton simple color="primary" size="lg">
+                                                    {mode}
+                                                </CustomButton>
+                                            </div>
+                                        )}
                                     </CardFooter>
                                 </form>
                             </Card>
