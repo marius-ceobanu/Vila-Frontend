@@ -55,12 +55,10 @@ function AuthenticationPage(props) {
 
     const submit = (form) => {
         form["userTypeId"] = 2;
-        console.log(form);
         mode === "Register" ?
         axios.post(registerAPI, form)
              .then((res) => {
                  if(res.status === 200) {
-                     console.log(res.data);
                      setResponseMessage(res.data);
                      setSubmitted(true);
                      setTimeout(() => {
@@ -70,11 +68,33 @@ function AuthenticationPage(props) {
                  }
              })
             .catch((err) => {
-                console.log(JSON.stringify(err));
-                setResponseMessage("Email already exists!");  // TODO replace with actual body message
-                setFailed(true);
+                if(err.response) {
+                    setResponseMessage(err.response.data);
+                    setFailed(true);
+                }
             }) :
-            console.log("login");
+            axios.post(loginAPI, {email: form["email"], password: form["password"]})
+                 .then((res) => {
+                    if(res.status === 200) {
+                        setResponseMessage("Autentificare cu succes!");
+                        setSubmitted(true);
+                        window.sessionStorage.setItem("token", res.data.token);
+                        window.sessionStorage.setItem("userEmail", res.data.email);
+                        window.sessionStorage.setItem("userId", res.data.id);
+                        window.sessionStorage.setItem("firstName", res.data.firstName);
+                        window.sessionStorage.setItem("userType", res.data.userTypeName);
+                        setTimeout(() => {
+                            history.push("/home");
+                        }, 1500);
+                    }
+                 })
+                 .catch((err) => {
+                    if(err.response) {
+                        console.log(err.response.data);
+                        setResponseMessage(err.response.data);
+                        setFailed(true);
+                    }
+                 })
     }
     setTimeout(function() {
         setCardAnimation("");
@@ -347,7 +367,7 @@ function AuthenticationPage(props) {
                                 <SnackbarAlert
                                     message={
                                         <span>
-                                        <b>{responseMessage}:</b> Veti fi redirectionat catre pagina de Login!
+                                        <b>{responseMessage}</b>
                                       </span>
                                     }
                                     close
