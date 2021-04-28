@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import React, {useEffect, useState} from "react";
+import {Link, useHistory} from "react-router-dom";
+import {useForm} from "react-hook-form";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
 import Email from "@material-ui/icons/Email";
@@ -27,6 +26,7 @@ import CardFooter from "../Layout/CardFooter.js";
 import Header from "../Layout/Header";
 import HeaderLinks from "../Layout/HeaderLinks";
 import SnackbarAlert from "../Layout/SnackbarAlert";
+import {auth, fProvider, gProvider} from "./FirebaseConfig";
 
 import styles from "../../jss/loginPage.js";
 import formStyles from "../../jss/customInputStyle";
@@ -52,6 +52,55 @@ function AuthenticationPage(props) {
     const [responseMessage, setResponseMessage] = useState("");
     const [failed, setFailed] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+
+    useEffect(() => {
+        auth.onAuthStateChanged(user => {
+            if(!!user) {
+                setResponseMessage("Autentificare cu succes!");
+                setSubmitted(true);
+                setTimeout(() => {
+                    history.push("/home");
+                }, 1500);
+            }
+        })
+    // eslint-disable-next-line
+    },  [])
+
+    // Firebase google log-in
+    const googleLogin = (e) => {
+        e.preventDefault();
+        auth.signInWithRedirect(gProvider).then(r => console.log("did it "));
+    };
+
+    // Firebase facebook log-in
+    const facebookLogin = (e) => {
+        e.preventDefault();
+        auth.signInWithPopup(fProvider)
+            .then((result) => {
+                if(result.credential) {
+                    window.sessionStorage.setItem("token", e.credential.accessToken);
+                    window.sessionStorage.setItem("userEmail", e.email);
+                    window.sessionStorage.setItem("firstName", e.email);
+                    setResponseMessage("Autentificare cu succes!");
+                    setSubmitted(true);
+                    setTimeout(() => {
+                        history.push("/home");
+                    }, 1500);
+                }
+            }).catch((e) => {
+                if(e.code === "auth/account-exists-with-different-credential") {
+                    window.sessionStorage.setItem("token", e.credential.accessToken);
+                    window.sessionStorage.setItem("userEmail", e.email);
+                    window.sessionStorage.setItem("firstName", e.email);
+                    setResponseMessage("Autentificare cu succes!");
+                    setSubmitted(true);
+                    setTimeout(() => {
+                        history.push("/home");
+                    }, 1500);
+                }
+            });
+    };
+
 
     const submit = (form) => {
         form["userTypeId"] = 2;
@@ -143,7 +192,7 @@ function AuthenticationPage(props) {
                                                 href="#pablo"
                                                 target="_blank"
                                                 color="transparent"
-                                                onClick={e => e.preventDefault()}
+                                                onClick={facebookLogin}
                                             >
                                                 <i className={"fab fa-facebook"} />
                                             </CustomButton>
@@ -152,7 +201,7 @@ function AuthenticationPage(props) {
                                                 href="#pablo"
                                                 target="_blank"
                                                 color="transparent"
-                                                onClick={e => e.preventDefault()}
+                                                onClick={googleLogin}
                                             >
                                                 <i className={"fab fa-google-plus-g"} />
                                             </CustomButton>

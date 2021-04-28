@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Lightbox from "react-awesome-lightbox";
 import "react-awesome-lightbox/build/style.css";
 
 import classNames from "classnames";
 
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 import Camera from "@material-ui/icons/Camera";
 import ListAlt from "@material-ui/icons/ListAlt";

@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 import stana from "../../../img/stana.jpg";
 import fishing from "../../../img/fishing.jpeg";

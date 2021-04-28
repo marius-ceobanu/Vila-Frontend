@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import classNames from "classnames";
 
 import PropTypes from "prop-types";
 
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 import styles from "../../jss/parallaxStyle";
 
