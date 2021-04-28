@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import PropTypes from "prop-types";
 
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 import styles from "../../jss/cardBodyStyle.js";
 

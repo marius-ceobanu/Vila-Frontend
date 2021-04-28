@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 import styles from "../../jss/landingPageStyle";
 
@@ -14,7 +14,7 @@ import GridItem from "../Layout/GridItem";
 import Parallax from "../Layout/Parallax";
 import Footer from "../Layout/Footer";
 
-import { PlayArrow } from "@material-ui/icons";
+import {PlayArrow} from "@material-ui/icons";
 import Header from "../Layout/Header";
 import HeaderLinks from "../Layout/HeaderLinks";
 

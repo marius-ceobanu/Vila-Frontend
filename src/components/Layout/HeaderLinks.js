@@ -1,12 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
+import {auth} from "../UserAuthentication/FirebaseConfig";
 
-import {Apps, Restaurant, Info, Contacts, CalendarToday, AssignmentTurnedIn, VpnKey, AccountCircle, ExitToApp} from "@material-ui/icons";
+import {
+    AccountCircle,
+    Apps,
+    AssignmentTurnedIn,
+    CalendarToday,
+    Contacts,
+    ExitToApp,
+    Info,
+    Restaurant,
+    VpnKey
+} from "@material-ui/icons";
 
 import CustomDropdown from "../Layout/CustomDropdown";
 import Button from "../Layout/CustomButton";
@@ -26,11 +37,21 @@ function HeaderLinks(props) {
         if (window.sessionStorage.getItem("userEmail")) {
             setIsLogged(true);
             setUserName(window.sessionStorage.getItem("firstName"));
+        } else {
+            auth.onAuthStateChanged(user => {
+                setIsLogged(!!user);
+                setUserName(user ? user.displayName : "");
+            })
         }
     }, []);
 
     const logout = () => {
         sessionStorage.clear();
+        auth.signOut().then(() => {
+            console.log("Sign out successful!");
+        }).catch((error) => {
+            console.log(error);
+        })
     }
 
     const classes = useStyles();
