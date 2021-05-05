@@ -15,11 +15,14 @@ import Parallax from "../Layout/Parallax.js";
 import IntroductionSection from "./IntroductionSection";
 import Header from "../Layout/Header";
 import HeaderLinks from "../Layout/HeaderLinks";
+import MenuMains from "../Layout/MenuMains";
+import MenuExtras from "../Layout/MenuExtras";
 
 import food1 from "../../img/restaurant/img-1.png";
 import food2 from "../../img/restaurant/img-2.png";
 import food3 from "../../img/restaurant/img-3.png";
 import food4 from "../../img/restaurant/img-4.png";
+import {mains, sides, drinks} from "../Restaurant/menu.json";
 
 import styles from "../../jss/restaurantSectionStyle";
 
@@ -107,17 +110,13 @@ function Restaurant(props) {
                                             tabButton: "Meniu",
                                             tabIcon: ListAlt,
                                             tabContent: (
-                                                <GridContainer justify="center">
-                                                    {/*{room.amenities.map((amenity, i) => (*/}
-                                                    {/*    <GridItem key={i} xs={12} sm={12} md={3}>*/}
-                                                    {/*        <InfoArea*/}
-                                                    {/*            title={amenity.name}*/}
-                                                    {/*            logo={amenitiesIcons[amenity.id]}*/}
-                                                    {/*            vertical*/}
-                                                    {/*        />*/}
-                                                    {/*    </GridItem>*/}
-                                                    {/*))}*/}
-                                                </GridContainer>
+                                                <div className={classes.menu}>
+                                                    <MenuMains meals={mains} />
+                                                    <aside className={classes.aside}>
+                                                        <MenuExtras type="Sides" items={sides} />
+                                                        <MenuExtras type="Drinks" items={drinks} />
+                                                    </aside>
+                                                </div>
                                             )
                                         }
                                     ]}

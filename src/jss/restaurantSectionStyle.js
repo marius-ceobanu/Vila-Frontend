@@ -1,6 +1,7 @@
 import {container, title} from "./material-kit-react.js";
 
 import imagesStyle from "./imagesStyles.js";
+import menuStyle from "./menuStyle";
 
 const profilePageStyle = {
   container,
@@ -57,7 +58,8 @@ const profilePageStyle = {
   navWrapper: {
     margin: "20px auto 50px auto",
     textAlign: "center"
-  }
+  },
+  ...menuStyle
 };
 
 export default profilePageStyle;
