@@ -6,10 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import GridContainer from "../../components/Layout/GridContainer.js";
 import GridItem from "../../components/Layout/GridItem.js";
-import Button from "../../components/Layout/CustomButton";
 import Card from "../../components/Layout/Card.js";
-import CardBody from "../../components/Layout/CardBody.js";
-import CardFooter from "../../components/Layout/CardFooter.js";
 
 import styles from "../../jss/restaurantIntroductionStyle";
 
