@@ -8,6 +8,7 @@ import "./scss/material-kit-react.scss?v=1.9.0";
 import HomePage from "./components/HomePage/HomePage";
 import RoomDetails from "./components/Rooms/RoomDetails";
 import AuthenticationPage from "./components/UserAuthentication/AuthenticationPage";
+import Restaurant from "./components/Restaurant/Restaurant";
 
 let hist = createBrowserHistory();
 
@@ -17,6 +18,7 @@ ReactDOM.render(
           <Route exact path={["/", "/home"]} component={HomePage} />
           <Route path="/rooms/:id" component={RoomDetails} />
           <Route path="/authentication/:mode" component={AuthenticationPage} />
+          <Route path="/restaurant" component={Restaurant} />
       </Switch>
   </Router>,
   document.getElementById('root')

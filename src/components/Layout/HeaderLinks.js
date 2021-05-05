@@ -67,16 +67,18 @@ function HeaderLinks(props) {
                     <Info className={classes.icons} /> Despre noi
                 </Button>
             </ListItem>
-            <ListItem className={classes.listItem}>
-                <Button
-                    href=""
-                    color="transparent"
-                    target="_blank"
-                    className={classes.navLink}
-                >
-                    <Restaurant className={classes.icons} /> Restaurant
-                </Button>
-            </ListItem>
+            <Link to={"/restaurant"} className={classes.linkItem}>
+                <ListItem className={classes.listItem}>
+                    <Button
+                        href=""
+                        color="transparent"
+                        target="_blank"
+                        className={classes.navLink}
+                    >
+                        <Restaurant className={classes.icons} /> Restaurant
+                    </Button>
+                </ListItem>
+            </Link>
             <ListItem className={classes.listItem}>
                 <CustomDropdown
                     noLiPadding
