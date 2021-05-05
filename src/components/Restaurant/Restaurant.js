@@ -16,6 +16,11 @@ import IntroductionSection from "./IntroductionSection";
 import Header from "../Layout/Header";
 import HeaderLinks from "../Layout/HeaderLinks";
 
+import food1 from "../../img/restaurant/img-1.png";
+import food2 from "../../img/restaurant/img-2.png";
+import food3 from "../../img/restaurant/img-3.png";
+import food4 from "../../img/restaurant/img-4.png";
+
 import styles from "../../jss/restaurantSectionStyle";
 
 const useStyles = makeStyles(styles);
@@ -72,14 +77,28 @@ function Restaurant(props) {
                                             tabContent: (
                                                 <GridContainer justify="center">
                                                     <GridItem xs={12} sm={12} md={4}>
-                                                        {/*{roomImages.map((image, i) => (*/}
-                                                        {/*    <img*/}
-                                                        {/*        key={i}*/}
-                                                        {/*        alt={"image"+i}*/}
-                                                        {/*        src={image}*/}
-                                                        {/*        className={navImageClasses}*/}
-                                                        {/*    />*/}
-                                                        {/*))}*/}
+                                                        <img
+                                                            alt="..."
+                                                            src={food3}
+                                                            className={navImageClasses}
+                                                        />
+                                                        <img
+                                                            alt="..."
+                                                            src={food1}
+                                                            className={navImageClasses}
+                                                        />
+                                                    </GridItem>
+                                                    <GridItem xs={12} sm={12} md={4}>
+                                                        <img
+                                                            alt="..."
+                                                            src={food2}
+                                                            className={navImageClasses}
+                                                        />
+                                                        <img
+                                                            alt="..."
+                                                            src={food4}
+                                                            className={navImageClasses}
+                                                        />
                                                     </GridItem>
                                                 </GridContainer>
                                             )
