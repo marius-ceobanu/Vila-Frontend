@@ -3,6 +3,13 @@ import {defaultFont} from "./material-kit-react";
 import tooltip from "./tooltipsStyle";
 
 const headerLinksStyle = theme => ({
+  linkItem: {
+    color: "white",
+    "&:hover,&:focus": {
+      color: "white",
+      background: "rgba(200, 200, 200, 0.2)"
+    }
+  },
   list: {
     ...defaultFont,
     fontSize: "14px",
