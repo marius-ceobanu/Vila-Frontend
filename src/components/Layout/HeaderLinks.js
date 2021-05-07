@@ -119,16 +119,18 @@ function HeaderLinks(props) {
                     <Contacts className={classes.icons} /> Contact
                 </Button>
             </ListItem>
-            <ListItem className={classes.listItem}>
-                <Button
-                    href=""
-                    color="transparent"
-                    target="_blank"
-                    className={classes.navLink}
-                >
-                    Descopera Zona
-                </Button>
-            </ListItem>
+            <Link to={"/discover"} className={classes.linkItem}>
+                <ListItem className={classes.listItem}>
+                    <Button
+                        href=""
+                        color="transparent"
+                        target="_blank"
+                        className={classes.navLink}
+                    >
+                        Descopera Zona
+                    </Button>
+                </ListItem>
+            </Link>
             <ListItem className={classes.listItem}>
                 <Button
                     href=""
