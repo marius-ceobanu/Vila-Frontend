@@ -57,16 +57,18 @@ function HeaderLinks(props) {
     const classes = useStyles();
     return (
         <List className={classes.list}>
-            <ListItem className={classes.listItem}>
-                <Button
-                    href=""
-                    color="transparent"
-                    target="_blank"
-                    className={classes.navLink}
-                >
-                    <Info className={classes.icons} /> Despre noi
-                </Button>
-            </ListItem>
+            <Link to={"/about"} className={classes.linkItem}>
+                <ListItem className={classes.listItem}>
+                    <Button
+                        href=""
+                        color="transparent"
+                        target="_blank"
+                        className={classes.navLink}
+                    >
+                        <Info className={classes.icons} /> Despre noi
+                    </Button>
+                </ListItem>
+            </Link>
             <Link to={"/restaurant"} className={classes.linkItem}>
                 <ListItem className={classes.listItem}>
                     <Button
