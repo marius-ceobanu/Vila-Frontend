@@ -13,6 +13,10 @@ import HeaderLinks from "../Layout/HeaderLinks";
 
 import styles from "../../jss/restaurantSectionStyle";
 
+import stana from "../../img/discoverArea/sections/stana.jpg";
+import vinarie from "../../img/discoverArea/sections/vinarie.jpg";
+import biking from "../../img/discoverArea/sections/biking.jpg";
+
 const useStyles = makeStyles(styles);
 
 function DiscoverArea(props) {
@@ -23,8 +27,6 @@ function DiscoverArea(props) {
         "and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero\n" +
         "are also reproduced in their exact original form, accompanied\n" +
         "by English versions from the 1914 translation by H. Rackham.";
-
-    // const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
     return (
         <div>
@@ -56,7 +58,39 @@ function DiscoverArea(props) {
                             <p>{description}</p>
                         </div>
                         <GridContainer justify="center">
-
+                            <GridItem className={classes.navWrapper} >
+                                <div className={classes.infoArea}>
+                                    <div>
+                                        <img src={stana} alt="..." className={classes.imgFluid}/>
+                                    </div>
+                                    <div className={classes.descriptionWrapper}>
+                                        <h4 className={classes.sectionTitle}>Vizita la stânā</h4>
+                                        <p className={classes.description}>Asa cum o ilustreaza si Nicolae Grigorescu, principala activitate a localnicilor, pastoritul, inca se pastreaza, zona fiind un loc de adunare a stanelor in drumul lor de transhumanta spre baltile Dunarii.</p>
+                                    </div>
+                                </div>
+                            </GridItem>
+                            <GridItem className={classes.navWrapper} >
+                                <div className={classes.infoArea}>
+                                    <div>
+                                        <img src={vinarie} alt="..." className={classes.imgFluid}/>
+                                    </div>
+                                    <div className={classes.descriptionWrapper}>
+                                        <h4 className={classes.sectionTitle}>Degustare la vinaria locala</h4>
+                                        <p className={classes.description}>{description}</p>
+                                    </div>
+                                </div>
+                            </GridItem>
+                            <GridItem className={classes.navWrapper} >
+                                <div className={classes.infoArea}>
+                                    <div>
+                                        <img src={biking} alt="..." className={classes.imgFluid}/>
+                                    </div>
+                                    <div className={classes.descriptionWrapper}>
+                                        <h4 className={classes.sectionTitle}>Mountain Biking in natura</h4>
+                                        <p className={classes.description}>{description}</p>
+                                    </div>
+                                </div>
+                            </GridItem>
                         </GridContainer>
                     </div>
                 </div>
