@@ -11,6 +11,7 @@ import AuthenticationPage from "./components/UserAuthentication/AuthenticationPa
 import Restaurant from "./components/Restaurant/Restaurant";
 import DiscoverArea from "./components/DiscoverArea/DiscoverArea";
 import AboutUs from "./components/AboutUs/AboutUs";
+import Contact from "./components/Contact/Contact";
 
 let hist = createBrowserHistory();
 
@@ -23,6 +24,7 @@ ReactDOM.render(
           <Route path="/restaurant" component={Restaurant} />
           <Route path="/discover" component={DiscoverArea} />
           <Route path="/about" component={AboutUs} />
+          <Route path="/contact" component={Contact} />
       </Switch>
   </Router>,
   document.getElementById('root')
