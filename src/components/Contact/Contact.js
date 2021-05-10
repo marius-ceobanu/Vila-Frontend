@@ -10,6 +10,7 @@ import GridItem from "../Layout/GridItem.js";
 import Parallax from "../Layout/Parallax.js";
 import Header from "../Layout/Header";
 import HeaderLinks from "../Layout/HeaderLinks";
+import Map from "./Map";
 
 import styles from "../../jss/restaurantSectionStyle";
 
@@ -54,7 +55,7 @@ function Contact(props) {
                             <p>{description}</p>
                         </div>
                         <GridContainer justify="center">
-
+                            <Map />
                         </GridContainer>
                     </div>
                 </div>
