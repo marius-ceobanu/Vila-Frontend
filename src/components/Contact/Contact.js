@@ -11,6 +11,7 @@ import Parallax from "../Layout/Parallax.js";
 import Header from "../Layout/Header";
 import HeaderLinks from "../Layout/HeaderLinks";
 import Map from "./Map";
+import MessageSection from "./MessageSection";
 
 import styles from "../../jss/restaurantSectionStyle";
 
@@ -56,6 +57,9 @@ function Contact(props) {
                         </div>
                         <GridContainer justify="center">
                             <Map />
+                            <div className={classes.container}>
+                                <MessageSection />
+                            </div>
                         </GridContainer>
                     </div>
                 </div>
