@@ -24,9 +24,8 @@ function Map() {
         <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={10}
+            zoom={15}
         >
-            { /* Child components, such as markers, info windows, etc. */ }
             <Marker
                 key={`${marker.lat}-${marker.lng}`}
                 position={{ lat: marker.lat, lng: marker.lng }}
