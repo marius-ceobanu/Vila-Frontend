@@ -16,6 +16,7 @@ import MessageSection from "./MessageSection";
 import styles from "../../jss/restaurantSectionStyle";
 
 const useStyles = makeStyles(styles);
+const backgroundUrl = process.env.REACT_APP_AWS_S3_API + "contact/background.jpg";
 
 function Contact(props) {
     const classes = useStyles();
@@ -39,7 +40,7 @@ function Contact(props) {
                 }}
                 {...rest}
             />
-            <Parallax small filter image={require("../../img/contact/background.jpg")} />
+            <Parallax small filter image={backgroundUrl} />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div>
                     <div className={classes.container}>

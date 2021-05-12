@@ -15,6 +15,7 @@ import styles from "../../jss/restaurantSectionStyle";
 import TeamSection from "./TeamSection";
 
 const useStyles = makeStyles(styles);
+const aboutUsUrl = process.env.REACT_APP_AWS_S3_API + "aboutUs/background.jpg";
 
 function AboutUs(props) {
     const classes = useStyles();
@@ -38,7 +39,7 @@ function AboutUs(props) {
                 }}
                 {...rest}
             />
-            <Parallax small filter image={require("../../img/aboutUs/background.jpg")} />
+            <Parallax small filter image={aboutUsUrl} />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div>
                     <div className={classes.container}>

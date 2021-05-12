@@ -13,14 +13,13 @@ import CardFooter from "../Layout/CardFooter.js";
 
 import styles from "../../jss/teamStyle";
 
-import team1 from "../../img/aboutUs/team/cristi.jpg";
-import team2 from "../../img/aboutUs/team/maria.jpg";
-import team3 from "../../img/aboutUs/team/marc.jpg";
-
 const useStyles = makeStyles(styles);
+const team1Url = process.env.REACT_APP_AWS_S3_API + "aboutUs/team/cristi.jpg";
+const team2Url = process.env.REACT_APP_AWS_S3_API + "aboutUs/team/maria.jpg";
+const team3Url = process.env.REACT_APP_AWS_S3_API + "aboutUs/team/marc.jpg";
 
 function TeamSection() {
-  const team = [{img: team1, name: "Cristi", role: "CEO"}, {img: team2, name: "Maria", role: "Co-founder"}, {img: team3, name: "Marc", role: "Bucatar"}];
+  const team = [{img: team1Url, name: "Cristi", role: "CEO"}, {img: team2Url, name: "Maria", role: "Co-founder"}, {img: team3Url, name: "Marc", role: "Bucatar"}];
   const classes = useStyles();
   const imageClasses = classNames(
     classes.imgRaised,

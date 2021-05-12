@@ -13,11 +13,11 @@ import HeaderLinks from "../Layout/HeaderLinks";
 
 import styles from "../../jss/restaurantSectionStyle";
 
-import stana from "../../img/discoverArea/sections/stana.jpg";
-import vinarie from "../../img/discoverArea/sections/vinarie.jpg";
-import biking from "../../img/discoverArea/sections/biking.jpg";
-
 const useStyles = makeStyles(styles);
+const backgroundUrl = process.env.REACT_APP_AWS_S3_API + "discoverArea/background.jpg";
+const stanaUrl = process.env.REACT_APP_AWS_S3_API + "discoverArea/sections/stana.jpg";
+const vinarieUrl = process.env.REACT_APP_AWS_S3_API + "discoverArea/sections/vinarie.jpg";
+const bikingUrl = process.env.REACT_APP_AWS_S3_API + "discoverArea/sections/biking.jpg";
 
 function DiscoverArea(props) {
     const classes = useStyles();
@@ -41,7 +41,7 @@ function DiscoverArea(props) {
                 }}
                 {...rest}
             />
-            <Parallax small filter image={require("../../img/discoverArea/background.jpg")} />
+            <Parallax small filter image={backgroundUrl} />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div>
                     <div className={classes.container}>
@@ -61,7 +61,7 @@ function DiscoverArea(props) {
                             <GridItem className={classes.navWrapper} >
                                 <div className={classes.infoArea}>
                                     <div>
-                                        <img src={stana} alt="..." className={classes.imgFluid}/>
+                                        <img src={stanaUrl} alt="..." className={classes.imgFluid}/>
                                     </div>
                                     <div className={classes.descriptionWrapper}>
                                         <h4 className={classes.sectionTitle}>Vizita la stânā</h4>
@@ -72,7 +72,7 @@ function DiscoverArea(props) {
                             <GridItem className={classes.navWrapper} >
                                 <div className={classes.infoArea}>
                                     <div>
-                                        <img src={vinarie} alt="..." className={classes.imgFluid}/>
+                                        <img src={vinarieUrl} alt="..." className={classes.imgFluid}/>
                                     </div>
                                     <div className={classes.descriptionWrapper}>
                                         <h4 className={classes.sectionTitle}>Degustare la vinaria locala</h4>
@@ -83,7 +83,7 @@ function DiscoverArea(props) {
                             <GridItem className={classes.navWrapper} >
                                 <div className={classes.infoArea}>
                                     <div>
-                                        <img src={biking} alt="..." className={classes.imgFluid}/>
+                                        <img src={bikingUrl} alt="..." className={classes.imgFluid}/>
                                     </div>
                                     <div className={classes.descriptionWrapper}>
                                         <h4 className={classes.sectionTitle}>Mountain Biking in natura</h4>

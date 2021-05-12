@@ -19,14 +19,6 @@ import InfoArea from "../Layout/InfoArea";
 import Header from "../Layout/Header";
 import HeaderLinks from "../Layout/HeaderLinks";
 
-// TODO to be replaced with fetched images of each room
-import room1 from "../../img/roomsForRent/room1.jpg";
-import room2 from "../../img/roomsForRent/room2.jpg";
-import room3 from "../../img/roomsForRent/room3.jpg";
-import room4 from "../../img/roomsForRent/room4.jpg";
-import room5 from "../../img/roomsForRent/room5.jpg";
-import room6 from "../../img/roomsForRent/room6.jpg";
-
 // TODO replace with official amenities logos
 import wifi from "../../img/wifi.png";
 import dryer from "../../img/hair-dryer.png";
@@ -43,9 +35,16 @@ const useStyles = makeStyles(styles);
 
 const roomAPI = "http://localhost:8080/vila/v1/rooms/";
 
+// TODO to be replaced with fetched images of each room
+const room1Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room1.jpg";
+const room2Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room2.jpg";
+const room3Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room3.jpg";
+const room4Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room4.jpg";
+const room5Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room5.jpg";
+const room6Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room6.jpg";
+
 function RoomDetails(props) {
-    const roomImages = [room1, room2, room3, room4, room5, room6];
-    // const roomImages = [{url: room1, title: "Room 1"}, {url: room2, title: "Room 2"}];
+    const roomImages = [room1Url, room2Url, room3Url, room4Url, room5Url, room6Url];
     const roomId = props.match.params.id;
     const [openZoom, setOpenZoom] = useState(false);
     const [room, setRoom] = useState({amenities: []});

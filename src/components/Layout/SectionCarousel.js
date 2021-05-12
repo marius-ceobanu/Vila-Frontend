@@ -7,20 +7,21 @@ import {makeStyles} from "@material-ui/core/styles";
 
 import LocationOn from "@material-ui/icons/LocationOn";
 
-import room1 from "../../img/roomsForRent/room1.jpg";
-import room2 from "../../img/roomsForRent/room2.jpg";
-import room3 from "../../img/roomsForRent/room3.jpg";
-import room4 from "../../img/roomsForRent/room4.jpg";
-import room5 from "../../img/roomsForRent/room5.jpg";
-import room6 from "../../img/roomsForRent/room6.jpg";
-
 import styles from "../../jss/carouselStyle.js";
 
 const useStyles = makeStyles(styles);
 
+// TODO to be replaced with fetched images of each room
+const room1Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room1.jpg";
+const room2Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room2.jpg";
+const room3Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room3.jpg";
+const room4Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room4.jpg";
+const room5Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room5.jpg";
+const room6Url = process.env.REACT_APP_AWS_S3_API + "roomsForRent/room6.jpg";
+
 function SectionCarousel({ rooms, close }) {
     const classes = useStyles();
-    const roomsImg = {"Room 1": room1, "Room 2": room2, "Room 3": room3, "Room 4": room4, "Room 5": room5, "Room 6": room6};
+    const roomsImg = {"Room 1": room1Url, "Room 2": room2Url, "Room 3": room3Url, "Room 4": room4Url, "Room 5": room5Url, "Room 6": room6Url};
     const settings = {
         dots: true,
         infinite: true,

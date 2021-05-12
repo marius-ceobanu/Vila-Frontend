@@ -18,15 +18,16 @@ import HeaderLinks from "../Layout/HeaderLinks";
 import MenuMains from "../Layout/MenuMains";
 import MenuExtras from "../Layout/MenuExtras";
 
-import food1 from "../../img/restaurant/img-1.png";
-import food2 from "../../img/restaurant/img-2.png";
-import food3 from "../../img/restaurant/img-3.png";
-import food4 from "../../img/restaurant/img-4.png";
 import {mains, sides, drinks} from "../Restaurant/menu.json";
 
 import styles from "../../jss/restaurantSectionStyle";
 
 const useStyles = makeStyles(styles);
+const backgroundUrl = process.env.REACT_APP_AWS_S3_API + "restaurant/restaurant-cover.jpeg";
+const food1Url = process.env.REACT_APP_AWS_S3_API + "restaurant/img-1.png";
+const food2Url = process.env.REACT_APP_AWS_S3_API + "restaurant/img-2.png";
+const food3Url = process.env.REACT_APP_AWS_S3_API + "restaurant/img-3.png";
+const food4Url = process.env.REACT_APP_AWS_S3_API + "restaurant/img-4.png";
 
 function Restaurant(props) {
     const classes = useStyles();
@@ -51,7 +52,7 @@ function Restaurant(props) {
                 }}
                 {...rest}
             />
-            <Parallax small filter image={require("../../img/restaurant/restaurant-cover.jpeg")} />
+            <Parallax small filter image={backgroundUrl} />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div>
                     <div className={classes.container}>
@@ -82,24 +83,24 @@ function Restaurant(props) {
                                                     <GridItem xs={12} sm={12} md={4}>
                                                         <img
                                                             alt="..."
-                                                            src={food3}
+                                                            src={food3Url}
                                                             className={navImageClasses}
                                                         />
                                                         <img
                                                             alt="..."
-                                                            src={food1}
+                                                            src={food1Url}
                                                             className={navImageClasses}
                                                         />
                                                     </GridItem>
                                                     <GridItem xs={12} sm={12} md={4}>
                                                         <img
                                                             alt="..."
-                                                            src={food2}
+                                                            src={food2Url}
                                                             className={navImageClasses}
                                                         />
                                                         <img
                                                             alt="..."
-                                                            src={food4}
+                                                            src={food4Url}
                                                             className={navImageClasses}
                                                         />
                                                     </GridItem>
