@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 
 import classNames from "classnames";
 
@@ -12,17 +13,36 @@ import Header from "../Layout/Header";
 import HeaderLinks from "../Layout/HeaderLinks";
 
 import styles from "../../jss/restaurantSectionStyle";
+import AnswerModal from "./AnswerModal";
 
 const useStyles = makeStyles(styles);
 
+const allMessagesApi = "http://localhost:8080/vila/v1/messages/all";
+
 function AdminPage(props) {
+    const [messages, setMessages] = useState([]);
+    const [answerModal, setAnswerModal] = useState(false);
+    const [selected, setSelected] = useState({});
+
+    const headers = {
+        headers: {
+            Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+        },
+    };
+
+    useEffect(() => {
+        axios.get(allMessagesApi, headers)
+            .then((res) => {
+                setMessages(res.data);
+            })
+            .catch((err) =>{
+                console.log(err);
+            })
+        // eslint-disable-next-line
+    }, []);
+
     const classes = useStyles();
     const { ...rest } = props;
-    const description = "The standard chunk of Lorem Ipsum used since the 1500s\n" +
-        "is reproduced below for those interested. Sections 1.10.32\n" +
-        "and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero\n" +
-        "are also reproduced in their exact original form, accompanied\n" +
-        "by English versions from the 1914 translation by H. Rackham.";
 
     return (
         <div>
@@ -50,9 +70,25 @@ function AdminPage(props) {
                                 </div>
                             </GridItem>
                         </GridContainer>
-                        <div className={classes.description}>
-                            <p>{description}</p>
-                        </div>
+                        <h4 className={classes.sectionTitle}>Mesaje</h4>
+                        <GridContainer>
+                            {messages.map((message, i) => (
+                                <GridItem key={i} >
+                                    <div >
+                                        <div className={classes.descriptionWrapper}>
+                                            <h6 className={classes.sectionTitle}>
+                                                {message.name}{" - "}
+                                                {message.email}{" "}
+                                                {message.answer !== null ? <img alt={"logo"} src="https://img.icons8.com/fluent/24/000000/checked.png"/> : <img alt={"logo"} src="https://img.icons8.com/material-rounded/24/fa314a/new-message.png" onClick={() => {setAnswerModal(true); setSelected(message);}}/>}
+                                            </h6>
+                                            <p >Message:{" "}{message.message}</p>
+                                            <p >Answer:{" "}{message.answer}</p>
+                                        </div>
+                                    </div>
+                                </GridItem>
+                            ))}
+                        </GridContainer>
+                        <AnswerModal open={answerModal} close={() => setAnswerModal(false)} message={selected} />
                     </div>
                 </div>
             </div>
