@@ -32,11 +32,13 @@ function HeaderLinks(props) {
     const [roomsFilter, setRoomsFilter] = useState("Toate");
     const [isLogged, setIsLogged] = useState(false);
     const [userName, setUserName] = useState("");
+    const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
         if (window.sessionStorage.getItem("userEmail")) {
             setIsLogged(true);
             setUserName(window.sessionStorage.getItem("firstName"));
+            setIsAdmin(window.sessionStorage.getItem("userType") === "ROLE_ADMIN");
         } else {
             auth.onAuthStateChanged(user => {
                 setIsLogged(!!user);
@@ -164,24 +166,26 @@ function HeaderLinks(props) {
                     </Tooltip>
                 </ListItem>
             ) : (
-                <ListItem className={classes.listItem}>
-                    <Tooltip
-                        id="user"
-                        title="User"
-                        placement={window.innerWidth > 959 ? "top" : "left"}
-                        classes={{ tooltip: classes.tooltip }}
-                    >
-                        <Button
-                            color="transparent"
-                            href=""
-                            // target="_blank"
-                            className={classes.navLink}
+                <Link to={isAdmin ? "/admin" : "/user"} className={classes.linkItem}>
+                    <ListItem className={classes.listItem}>
+                        <Tooltip
+                            id="user"
+                            title="User"
+                            placement={window.innerWidth > 959 ? "top" : "left"}
+                            classes={{ tooltip: classes.tooltip }}
                         >
-                            <AccountCircle className={classes.icons} />
-                            {userName}
-                        </Button>
-                    </Tooltip>
-                </ListItem>
+                            <Button
+                                color="transparent"
+                                href=""
+                                // target="_blank"
+                                className={classes.navLink}
+                            >
+                                <AccountCircle className={classes.icons} />
+                                {userName}
+                            </Button>
+                        </Tooltip>
+                    </ListItem>
+                </Link>
             )}
             {!isLogged ? (
                 <ListItem className={classes.listItem}>
