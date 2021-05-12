@@ -33,7 +33,7 @@ function AnswerModal(props) {
                 if(res.status === 200) {
                     props.close();
                     setTimeout(() => {
-                        window.location.reload();;
+                        window.location.reload();
                     }, 1000);
                 }
             })
